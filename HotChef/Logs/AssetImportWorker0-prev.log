@@ -1,0 +1,222 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.7f1 (dd97f2c94397) revision 14522354'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.928; Version 2009; 64bit' Language: 'en' Physical Memory: 16173 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/parke/OneDrive/Desktop/Unity2D/SpicyChefGame/HotChef
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+59354
+Successfully changed project path to: C:/Users/parke/OneDrive/Desktop/Unity2D/SpicyChefGame/HotChef
+C:/Users/parke/OneDrive/Desktop/Unity2D/SpicyChefGame/HotChef
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 30.77 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.7f1 (dd97f2c94397)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/parke/OneDrive/Desktop/Unity2D/SpicyChefGame/HotChef/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2191)
+    Vendor:   
+    VRAM:     5991 MB
+    Driver:   27.21.14.5720
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56372
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.002439 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 28.10 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.015 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000831 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 31.36 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.777 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1808 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 84.9 MB.
+System memory in use after: 84.8 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2250.
+Total: 2.717400 ms (FindLiveObjects: 0.233300 ms CreateObjectMapping: 0.153200 ms MarkObjects: 2.172200 ms  DeleteObjects: 0.157300 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f6a1853b736837ecfb0820a881449cb') in 0.007437 seconds
+  Import took 0.010120 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.240281 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(5e99a5ee22350794db0dfb13cb678c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(5e99a5ee22350794db0dfb13cb678c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fab7658be2167475011ea146ccf21cf9') in 0.006877 seconds
+  Import took 0.009548 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.224964 seconds.
+  path: Assets/Sprites
+  artifactKey: Guid(fab414ee4d9d217479922a85ce053ab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites using Guid(fab414ee4d9d217479922a85ce053ab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd315bc7b8cd2f8dd716ed388e44515c5') in 0.007118 seconds
+  Import took 0.010036 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.468632 seconds.
+  path: Assets/Sounds
+  artifactKey: Guid(282ace7b672f22e4589f34e606784181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds using Guid(282ace7b672f22e4589f34e606784181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69816081ef98caa80ced3dfe23c87601') in 0.007269 seconds
+  Import took 0.010275 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.380934 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(24ae1a2486b934b4b9a9a9c90874b024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(24ae1a2486b934b4b9a9a9c90874b024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b19104734ff10e99ffe09bfc3cac95c') in 0.007907 seconds
+  Import took 0.010688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000719 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(24ae1a2486b934b4b9a9a9c90874b024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(24ae1a2486b934b4b9a9a9c90874b024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b19104734ff10e99ffe09bfc3cac95c') in 0.002959 seconds
+  Import took 0.006472 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 42.821496 seconds.
+  path: Assets/Sprites/ChefRun_legs_color2.png
+  artifactKey: Guid(321700d509d8c78468d26f73575fdb83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_legs_color2.png using Guid(321700d509d8c78468d26f73575fdb83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69ecbd9fcb5970346c9c987e29a7f738') in 0.093172 seconds
+  Import took 0.095974 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.129284 seconds.
+  path: Assets/Sprites/ChefIdle_Color.png
+  artifactKey: Guid(42b30d842b615e747b95cb6ef883f982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefIdle_Color.png using Guid(42b30d842b615e747b95cb6ef883f982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a4d97b08398508f97b0ca733c5885e7') in 0.014562 seconds
+  Import took 0.017148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.050711 seconds.
+  path: Assets/Sprites/ChefIdle_Color.png
+  artifactKey: Guid(42b30d842b615e747b95cb6ef883f982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefIdle_Color.png using Guid(42b30d842b615e747b95cb6ef883f982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '541c0110ab101da0066c16b57f2dbe5b') in 0.010321 seconds
+  Import took 0.013459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.535230 seconds.
+  path: Assets/Sprites/ChefRun_Color.png
+  artifactKey: Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_Color.png using Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08a05ab6b4f801dfe27f368d90255146') in 0.018023 seconds
+  Import took 0.021075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.270022 seconds.
+  path: Assets/Sprites/ChefIdle_Color.png
+  artifactKey: Guid(42b30d842b615e747b95cb6ef883f982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefIdle_Color.png using Guid(42b30d842b615e747b95cb6ef883f982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '732957cfeccdef27c2802917cfe86d6a') in 0.027168 seconds
+  Import took 0.029897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.412363 seconds.
+  path: Assets/Sprites/ChefRun_Color.png
+  artifactKey: Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_Color.png using Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '877e062e6b2f09392b084c28d0bfa262') in 0.011828 seconds
+  Import took 0.014605 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000789 seconds.
+  path: Assets/Sprites/ChefRun_Color.png
+  artifactKey: Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_Color.png using Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '877e062e6b2f09392b084c28d0bfa262') in 0.012632 seconds
+  Import took 0.015384 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.200692 seconds.
+  path: Assets/Sprites/ChefRun_Color.png
+  artifactKey: Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_Color.png using Guid(31b840e33f440154d8459a6a6d425658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0410cbb0037d9b3dc78230373f9814d') in 0.037060 seconds
+  Import took 0.040228 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.362386 seconds.
+  path: Assets/Sprites/ChefRun_legs_color2.png
+  artifactKey: Guid(321700d509d8c78468d26f73575fdb83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_legs_color2.png using Guid(321700d509d8c78468d26f73575fdb83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe5c76aeb5b47b50d10d42099fa99095') in 0.012622 seconds
+  Import took 0.020196 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.824078 seconds.
+  path: Assets/Sprites/ChefRun_legs_Color.png
+  artifactKey: Guid(89e53624e4f93894e85402333de98211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_legs_Color.png using Guid(89e53624e4f93894e85402333de98211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66eeedda3c6d9387d958a56b04d186a3') in 0.015015 seconds
+  Import took 0.018190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.413503 seconds.
+  path: Assets/Sprites/ChefRun_legs_Color.png
+  artifactKey: Guid(89e53624e4f93894e85402333de98211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_legs_Color.png using Guid(89e53624e4f93894e85402333de98211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aeb80c4edcef68c1cf53bfec26008b7') in 0.010214 seconds
+  Import took 0.013109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.270227 seconds.
+  path: Assets/Sprites/ChefRun_legs_Color.png
+  artifactKey: Guid(89e53624e4f93894e85402333de98211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/ChefRun_legs_Color.png using Guid(89e53624e4f93894e85402333de98211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd47297343014276b01acce3e1272e52f') in 0.032912 seconds
+  Import took 0.035545 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
