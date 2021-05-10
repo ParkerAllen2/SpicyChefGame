@@ -161,7 +161,7 @@ public class PlatformerRigidbody2D : MonoBehaviour
         Sprinting = Jumping = Falling = Idling = false;
     }
 
-    public void FlipSprite(SpriteRenderer[] sprites, bool flipToMouse = false)
+    public void FlipSprite(bool flipToMouse = false)
     {
         if (flipToMouse)
         {
@@ -171,17 +171,16 @@ public class PlatformerRigidbody2D : MonoBehaviour
 
             flip = Mathf.Abs(angle) > 90;
         }
-        else if(directionalInput.x != 0)
+        else if(directionalInput.x == 0)
         {
-            flip = velocity.x < 0;
+            return;
         }
+
+        flip = velocity.x < 0;
 
         faceDir = flip ? Vector2.left : Vector2.right;
 
-        foreach(SpriteRenderer sr in sprites)
-        {
-            sr.flipX = flip;
-        }
+        transform.rotation = flip ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
     }
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters/Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

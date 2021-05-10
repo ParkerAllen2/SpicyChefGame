@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class PlayerPlatformerController : MonoBehaviour
 {
     private PlatformerRigidbody2D playerMovement;
+    Hitbox hitbox;
+    public Attack[] attacks;
 
     Animator[] animators;
     SpriteRenderer[] spriteRenderers;
@@ -17,21 +19,15 @@ public class PlayerPlatformerController : MonoBehaviour
         playerMovement = GetComponentInParent<PlatformerRigidbody2D>();
         animators = GetComponentsInChildren<Animator>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        hitbox = GetComponentInChildren<Hitbox>();
     }
 
     void Update()
     {
         GetMovementInput();
-        if(!EventSystem.current.IsPointerOverGameObject())
-        {
-            AttackInput();
-        }
-        else
-        {
-            playerMovement.DirectionalInput = Vector3.zero;
-        }
         playerMovement.AnimateCharacter(animators);
-        playerMovement.FlipSprite(spriteRenderers);
+        playerMovement.FlipSprite();
+        AttackInput();
     }
 
     private void GetMovementInput()
@@ -51,7 +47,29 @@ public class PlayerPlatformerController : MonoBehaviour
 
     void AttackInput()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        if (hitbox.attacking)
+        {
+            return;
+        }
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
+
         string anim = "";
+        foreach (Attack att in attacks)
+        {
+            if (att.CanUse())
+            {
+                hitbox.StartSwinging(playerMovement.FaceDir.x, att);
+                anim = att.animationName;
+                break;
+            }
+        }
 
         if (!anim.Equals(""))
         {
