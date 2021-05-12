@@ -40,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: FireElemental
+    uniqueID: 669968001
+    locked: 0
+  - name: FrostElemental
+    uniqueID: 811542397
+    locked: 0
   - name: Player
     uniqueID: 3532729641
     locked: 0
