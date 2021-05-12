@@ -8,6 +8,7 @@ public class PlayerPlatformerController : MonoBehaviour
     private PlatformerRigidbody2D playerMovement;
     Hitbox hitbox;
     public Attack[] attacks;
+    public float swingKnockback;
 
     Animator[] animators;
     SpriteRenderer[] spriteRenderers;
@@ -26,8 +27,11 @@ public class PlayerPlatformerController : MonoBehaviour
     {
         GetMovementInput();
         playerMovement.AnimateCharacter(animators);
-        playerMovement.FlipSprite();
-        AttackInput();
+        if (!hitbox.attacking)
+        {
+            playerMovement.FlipSprite();
+            AttackInput();
+        }
     }
 
     private void GetMovementInput()
@@ -51,30 +55,40 @@ public class PlayerPlatformerController : MonoBehaviour
         {
             return;
         }
-        if (hitbox.attacking)
+        if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             return;
         }
-        if (!Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1) && attacks[1].CanUse())
         {
+            PlayAttack(attacks[1]);
             return;
         }
 
-        string anim = "";
         foreach (Attack att in attacks)
         {
             if (att.CanUse())
             {
-                hitbox.StartSwinging(playerMovement.FaceDir.x, att);
-                anim = att.animationName;
+                PlayAttack(att);
                 break;
             }
         }
+    }
 
-        if (!anim.Equals(""))
+    void PlayAttack(Attack att)
+    {
+        if (playerMovement.DirectionalInput.x != 0)
         {
-            animators[0].Play(anim);
-            animators[1].Play(anim);
+            playerMovement.FlipSprite(playerMovement.DirectionalInput.x < 0);
+        }
+
+        hitbox.StartSwinging(playerMovement.FaceDir.x, att);
+        playerMovement.KnockBack = playerMovement.FaceDir * swingKnockback;
+
+        animators[0].Play("Player_Attack_" + att.animationName);
+        if (playerMovement.Idling)
+        {
+            animators[1].Play("Player_L_Attack_" + att.animationName);
         }
     }
 

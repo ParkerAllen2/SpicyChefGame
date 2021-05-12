@@ -25,6 +25,9 @@ public class PlatformerRigidbody2D : MonoBehaviour
     [SerializeField] float accelerationTimeAir = 1, accelerationTimeGround = .1f;
     [SerializeField] float stopDeacceleratingX = .5f;
 
+    public float knockBackResist;
+    Vector3 knockBack;
+
     public Vector3 velocity;
     float velocityXSmoothing;
 
@@ -34,8 +37,6 @@ public class PlatformerRigidbody2D : MonoBehaviour
 
     bool sprinting, jumping, falling, idling;
     bool onGround;
-
-    public bool flipDaSprite;
 
     public float timeScale = 1;
 
@@ -66,18 +67,18 @@ public class PlatformerRigidbody2D : MonoBehaviour
         onGround = characterMovement.sides.below;
         SetCharacterState();
         CalculateVelocity();
-        rb.transform.position += GetMovement();
+        GetMovement();
         PostMovementUpdate();
     }
 
-    public Vector3 GetMovement()
+    public void GetMovement()
     {
-        return characterMovement.Move(velocity * Time.deltaTime * timeScale, directionalInput);
+        GetMovement(velocity * Time.deltaTime * timeScale);
     }
 
-    public Vector3 GetMovement(Vector3 v)
+    public void GetMovement(Vector3 v)
     {
-        return characterMovement.Move(v, directionalInput);
+        rb.transform.position += characterMovement.Move(v, directionalInput);
     }
 
     public void SetCharacterState()
@@ -93,7 +94,7 @@ public class PlatformerRigidbody2D : MonoBehaviour
         {
             Falling = true;
         }
-        else if (onGround && velocity.x != 0)
+        else if (onGround && velocity.x != 0 && directionalInput.x != 0)
         {
             Sprinting = true;
             moveSpeed = sprintSpeed;
@@ -106,10 +107,12 @@ public class PlatformerRigidbody2D : MonoBehaviour
 
     public void CalculateVelocity()
     {
-        float targetVelocityX = directionalInput.x * moveSpeed;
+        float targetVelocityX = directionalInput.x * moveSpeed + knockBack.x;
 
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (characterMovement.sides.below) ? accelerationTimeGround : accelerationTimeAir);
-        velocity.y += gravity * Time.fixedDeltaTime * timeScale;
+        velocity.y += gravity * Time.fixedDeltaTime * timeScale + knockBack.y;
+
+        knockBack = Vector3.Max(KnockBack * knockBackResist, Vector3.zero);
     }
 
     //when jumping button is pressed return velocity for wall jumping or max jump velocity
@@ -161,30 +164,23 @@ public class PlatformerRigidbody2D : MonoBehaviour
         Sprinting = Jumping = Falling = Idling = false;
     }
 
-    public void FlipSprite(bool flipToMouse = false)
+    public void FlipSprite()
     {
-        if (flipToMouse)
-        {
-            Vector3 camPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            camPos.z = 0;
-            float angle = Vector3.SignedAngle(Vector3.right, camPos - transform.position, Vector3.forward);
-
-            flip = Mathf.Abs(angle) > 90;
-        }
-        else if(directionalInput.x == 0)
+        if(directionalInput.x == 0)
         {
             return;
         }
+        FlipSprite(velocity.x < 0);
+    }
 
-        flip = velocity.x < 0;
-
+    public void FlipSprite(bool flip)
+    {
         faceDir = flip ? Vector2.left : Vector2.right;
-
         transform.rotation = flip ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
     }
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters/Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    
+
     public CharacterCollider2D GetCharacterMovement()
     {
         return characterMovement;
@@ -282,5 +278,11 @@ public class PlatformerRigidbody2D : MonoBehaviour
     public bool OnGround
     {
         get { return onGround; }
+    }
+
+    public Vector3 KnockBack
+    {
+        get { return knockBack; }
+        set { knockBack += value; }
     }
 }

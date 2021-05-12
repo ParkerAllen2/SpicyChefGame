@@ -5,8 +5,7 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     BoxCollider2D hitbox;
-    PlayerPlatformerController controller;
-    Transform pivot;
+    public Transform pivot;
 
     Attack attack;
     float direction;
@@ -14,8 +13,6 @@ public class Hitbox : MonoBehaviour
 
     private void Start()
     {
-        pivot = transform.parent;
-        controller = pivot.GetComponent<PlayerPlatformerController>();
         hitbox = GetComponent<BoxCollider2D>();
         hitbox.enabled = false;
     }
@@ -27,6 +24,7 @@ public class Hitbox : MonoBehaviour
         direction = dir;
         attack = att;
         hitbox.enabled = true;
+        attack.SetCooldown();
         StartCoroutine(Swing());
     }
 
@@ -48,8 +46,6 @@ public class Hitbox : MonoBehaviour
             ballRb.AddForce(force);
 
             hitbox.enabled = false;
-            attack.SetCooldown();
-            print("hit");
         }
     }
 
