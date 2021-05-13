@@ -25,6 +25,12 @@ public class PlayerPlatformerController : MonoBehaviour
 
     void Update()
     {
+        if (GameController.Instance.gameOver)
+        {
+            playerMovement.DirectionalInput = Vector3.zero;
+            playerMovement.AnimateCharacter(animators);
+            return;
+        }
         GetMovementInput();
         playerMovement.AnimateCharacter(animators);
         if (!hitbox.attacking)

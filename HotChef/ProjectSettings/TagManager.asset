@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 351506535
+    locked: 0
   - name: FireElemental
     uniqueID: 669968001
     locked: 0

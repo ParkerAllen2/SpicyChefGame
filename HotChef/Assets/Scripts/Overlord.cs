@@ -8,26 +8,61 @@ public class Overlord : MonoBehaviour
     public SpeedBar odometer;
     public TotalScore totalScore;
     public ComboScore comboScore;
+    public ScreenBorder border;
+    public LightController lightController;
 
     public float highSpeed, lowSpeed;
     public float max, min;
     float normalizedVelocity;
 
-    bool gameOver;
+    public float scoreUpdateRate;
+    float nextScoreUpdate = 0;
+
+    bool playing;
     bool isHighSpeed, isLowSpeed;
 
     private void Start()
     {
-        
+        Time.timeScale = 1;
+
     }
 
     private void Update()
     {
-        normalizedVelocity = Mathf.Max(0, (ball.GetVelocity().magnitude - min) / max);
+        if (GameController.Instance.gameOver) return;
+
+        normalizedVelocity = (normalizedVelocity + Mathf.Max(0, (ball.GetSpeed() - min) / max)) / 2;
         isHighSpeed = normalizedVelocity >= highSpeed;
         isLowSpeed = normalizedVelocity < lowSpeed;
 
-        ball.UpdateBall(isHighSpeed, isLowSpeed);
+        CheckGameState();
+
+        ball.UpdateBall(isHighSpeed, isLowSpeed, normalizedVelocity);
+        border.UpdateWalls(isHighSpeed, isLowSpeed);
         odometer.UpdateBar(normalizedVelocity);
+        comboScore.CheckHighSpeed(isHighSpeed);
+        lightController.UpdateGlobalLight(normalizedVelocity);
+
+        if (nextScoreUpdate < Time.time)
+        {
+            float combo = comboScore.UpdateCombo(isHighSpeed);
+            totalScore.UpdateScore(normalizedVelocity, combo);
+            nextScoreUpdate = Time.time + scoreUpdateRate;
+        }
+    }
+
+    public void CheckGameState()
+    {
+        if (!playing)
+        {
+            playing = isHighSpeed;
+            return;
+        }
+        if(normalizedVelocity <= 0)
+        {
+            GameController.Instance.gameOver = true;
+            print("Game Over");
+            return;
+        }
     }
 }

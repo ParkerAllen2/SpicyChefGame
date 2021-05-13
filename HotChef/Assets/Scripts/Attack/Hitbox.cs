@@ -41,19 +41,17 @@ public class Hitbox : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             Rigidbody2D ballRb = other.GetComponent<Rigidbody2D>();
-            Vector3 force = CalculateForce(ballRb.position);
-            ballRb.velocity = Vector2.zero;
-            ballRb.AddForce(force);
-
+            Vector3 force = CalculateForce(ballRb);
+            ballRb.velocity = force;
             hitbox.enabled = false;
         }
     }
 
-    public Vector3 CalculateForce(Vector3 ballPos)
+    public Vector3 CalculateForce(Rigidbody2D ballPos)
     {
-        Vector3 dir = Quaternion.Euler(0, 0, attack.offsetAngle) * (ballPos - pivot.position).normalized;
+        Vector3 dir = Quaternion.Euler(0, 0, attack.offsetAngle) * ((Vector3)ballPos.position - pivot.position).normalized;
         dir.x = Mathf.Abs(dir.x) * direction;
 
-        return dir * attack.magnitude;
+        return dir * attack.magnitude + dir * (ballPos.velocity.magnitude * .5f);
     }
 }

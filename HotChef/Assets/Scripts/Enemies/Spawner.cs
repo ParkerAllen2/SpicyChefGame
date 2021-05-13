@@ -9,10 +9,13 @@ public class Spawner : MonoBehaviour
     public float nextSpawn = 0;
     public Vector2 topright;
 
-
     private void Update()
     {
-        if(nextSpawn < Time.time)
+        if (GameController.Instance.gameOver)
+        {
+            return;
+        }
+        if (nextSpawn < Time.time)
         {
             nextSpawn = Time.time + spawnRate;
             SpawnEnemy();

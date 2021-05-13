@@ -1,59 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class BallController : MonoBehaviour
 {
     ParticleSystem ballParticles;
+    Light2D ballLight;
     Rigidbody2D rb;
     public Gradient cold, hot;
-    public float maxVelocity;
+    public Gradient lightGradient;
+
     bool particlesPlaying;
 
+    public float maxSpeed;
+    public float extraSpeed;
 
     private void Start()
     {
         ballParticles = GetComponentInChildren<ParticleSystem>();
+        ballLight = GetComponentInChildren<Light2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        if (rb.velocity.magnitude > maxVelocity)
+        Vector3 velocity = rb.velocity;
+        float magDiff = rb.velocity.magnitude - maxSpeed;
+        if (magDiff > 0)
         {
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
+            extraSpeed += magDiff;
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         }
+        else if(extraSpeed > 0)
+        {
+            float newMag = Mathf.Min(extraSpeed, Mathf.Abs(magDiff));
+            velocity = velocity.normalized * (velocity.magnitude + newMag);
+            extraSpeed -= newMag;
+        }
+        rb.velocity = velocity;
     }
 
-    public void UpdateBall(bool isHighSpeed, bool isLowSpeed)
+    public void UpdateBall(bool isHighSpeed, bool isLowSpeed, float velocity)
     {
+        Color color = lightGradient.Evaluate(velocity);
+        ballLight.color = color;
+        ballLight.pointLightOuterRadius = color.a;
+        if (isHighSpeed == false && isLowSpeed == false)
+        {
+            particlesPlaying = false;
+            ballParticles.Stop();
+            return;
+        }
         var col = ballParticles.colorOverLifetime;
-        if (isHighSpeed)
+        col.color = isHighSpeed ? hot : cold;
+        if (!particlesPlaying)
         {
-            col.color = hot;
-            if (!particlesPlaying)
-            {
-                particlesPlaying = true;
-                ballParticles.Play();
-            }
-            return;
+            particlesPlaying = true;
+            ballParticles.Play();
         }
-        if (isLowSpeed)
-        {
-            col.color = cold;
-            if (!particlesPlaying)
-            {
-                particlesPlaying = true;
-                ballParticles.Play();
-            }
-            return;
-        }
-        particlesPlaying = false;
-        ballParticles.Stop();
     }
 
-    public Vector3 GetVelocity()
+    public float GetSpeed()
     {
-        return rb.velocity;
+        return rb.velocity.magnitude + extraSpeed;
     }
 }
