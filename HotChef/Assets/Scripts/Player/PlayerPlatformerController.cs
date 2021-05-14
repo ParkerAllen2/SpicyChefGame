@@ -33,9 +33,9 @@ public class PlayerPlatformerController : MonoBehaviour
         }
         GetMovementInput();
         playerMovement.AnimateCharacter(animators);
+        playerMovement.FlipSprite();
         if (!hitbox.attacking)
         {
-            playerMovement.FlipSprite();
             AttackInput();
         }
     }
@@ -88,7 +88,7 @@ public class PlayerPlatformerController : MonoBehaviour
             playerMovement.FlipSprite(playerMovement.DirectionalInput.x < 0);
         }
 
-        hitbox.StartSwinging(playerMovement.FaceDir.x, att);
+        hitbox.StartSwinging(att);
         playerMovement.KnockBack = playerMovement.FaceDir * swingKnockback;
 
         animators[0].Play("Player_Attack_" + att.animationName);

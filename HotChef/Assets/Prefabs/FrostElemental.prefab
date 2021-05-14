@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4776,8 +4776,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 669968001
-  m_SortingLayer: -3
+  m_SortingLayerID: 811542397
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4872,7 +4872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e0762aea1b7934ea9dc895a5d6364b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeStartDeath: 20
+  timeStartDeath: 17
   deathTime: 2
   speed: 3
   circleWeight: 1
@@ -9756,7 +9756,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd16f7c90d73c4e49a5a5eccead35f98, type: 2}
+  - {fileID: 2100000, guid: 0f3615c461b9f7e43892dd3fd47232ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9774,8 +9774,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 669968001
-  m_SortingLayer: -3
+  m_SortingLayerID: 811542397
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 3

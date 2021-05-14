@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class FaceRenderer : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class FaceRenderer : MonoBehaviour
     public float changeRate;
     int currentSprite = 0;
     SpriteRenderer sr;
+    Light2D faceLight;
 
     protected virtual void Start()
     {

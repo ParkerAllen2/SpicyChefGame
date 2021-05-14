@@ -18,6 +18,9 @@ public class Overlord : MonoBehaviour
     public float scoreUpdateRate;
     float nextScoreUpdate = 0;
 
+    public float comboUpdateRate;
+    float nextComboUpdate = 0;
+
     bool playing;
     bool isHighSpeed, isLowSpeed;
 
@@ -40,14 +43,20 @@ public class Overlord : MonoBehaviour
         ball.UpdateBall(isHighSpeed, isLowSpeed, normalizedVelocity);
         border.UpdateWalls(isHighSpeed, isLowSpeed);
         odometer.UpdateBar(normalizedVelocity);
-        comboScore.CheckHighSpeed(isHighSpeed);
         lightController.UpdateGlobalLight(normalizedVelocity);
 
+        
         if (nextScoreUpdate < Time.time)
         {
-            float combo = comboScore.UpdateCombo(isHighSpeed);
+            float combo = comboScore.CheckHighSpeed(isHighSpeed);
             totalScore.UpdateScore(normalizedVelocity, combo);
             nextScoreUpdate = Time.time + scoreUpdateRate;
+        }
+
+        if (nextComboUpdate < Time.time)
+        {
+            comboScore.UpdateCombo(isHighSpeed);
+            nextComboUpdate = Time.time + comboUpdateRate;
         }
     }
 

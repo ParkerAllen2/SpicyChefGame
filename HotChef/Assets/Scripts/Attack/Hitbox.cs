@@ -8,20 +8,20 @@ public class Hitbox : MonoBehaviour
     public Transform pivot;
 
     Attack attack;
-    float direction;
+    PlatformerRigidbody2D direction;
     [HideInInspector] public bool attacking;
 
     private void Start()
     {
         hitbox = GetComponent<BoxCollider2D>();
+        direction = GetComponentInParent<PlatformerRigidbody2D>();
         hitbox.enabled = false;
     }
     
     //Anyways I 
-    public void StartSwinging(float dir, Attack att)
+    public void StartSwinging(Attack att)
     {
         attacking = true;
-        direction = dir;
         attack = att;
         hitbox.enabled = true;
         attack.SetCooldown();
@@ -50,7 +50,7 @@ public class Hitbox : MonoBehaviour
     public Vector3 CalculateForce(Rigidbody2D ballPos)
     {
         Vector3 dir = Quaternion.Euler(0, 0, attack.offsetAngle) * ((Vector3)ballPos.position - pivot.position).normalized;
-        dir.x = Mathf.Abs(dir.x) * direction;
+        dir.x = Mathf.Abs(dir.x) * direction.FaceDir.x;
 
         return dir * attack.magnitude + dir * (ballPos.velocity.magnitude * .5f);
     }

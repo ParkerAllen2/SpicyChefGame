@@ -23,6 +23,8 @@ public class SliderValidator : MonoBehaviour
     protected SpriteRenderer fill;
     Transform handle;
 
+    Vector3 fillScale;
+
     protected virtual void Start()
     {
         UpdateWidth();
@@ -45,19 +47,20 @@ public class SliderValidator : MonoBehaviour
     {
         //cache
         Transform[] t = GetComponentsInChildren<Transform>();
-        border = GetComponent<SpriteRenderer>();
-        background = t[1].GetComponent<SpriteRenderer>();
-        fill = t[2].GetComponent<SpriteRenderer>();
-        handle = t[3];
+        border = t[1].GetComponent<SpriteRenderer>();
+        background = t[2].GetComponent<SpriteRenderer>();
+        fill = t[3].GetComponent<SpriteRenderer>();
+        fillScale = t[3].localScale;
+        handle = t[4];
 
         left = -width / 2; 
         Vector3 origin = transform.position;
 
         //border
-        border.size = new Vector2(width + horizontalPadding, height + verticalPadding);
+        border.size = new Vector2((width + horizontalPadding) / t[1].localScale.x, height + verticalPadding);
 
         //background
-        background.size = new Vector2(width, height);
+        background.size = new Vector2(width / t[2].localScale.x, height);
         background.transform.position = origin;
 
         //fill
@@ -76,7 +79,7 @@ public class SliderValidator : MonoBehaviour
         handle.localPosition = handlePosition;
 
         //fill
-        fillSize.x = x;
+        fillSize.x = x / fillScale.x;
         fill.size = fillSize;
         if (aliginLeft)
         {

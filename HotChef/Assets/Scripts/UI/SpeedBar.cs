@@ -9,6 +9,7 @@ public class SpeedBar : SliderValidator
     //public ScoreCounter scoreCounter;
     public Rigidbody2D ball;
     public Gradient gradient;
+    public ParticleSystem smoke;
 
     protected override void Start()
     {
@@ -20,5 +21,14 @@ public class SpeedBar : SliderValidator
     {
         MoveHandle(value);
         fill.color = gradient.Evaluate(value);
+        if(value < 1)
+        {
+            smoke.Stop();
+            return;
+        }
+        if (!smoke.isPlaying)
+        {
+            smoke.Play();
+        }
     }
 }
