@@ -36,7 +36,7 @@ public class ComboScore : MonoBehaviour
     void setText()
     {
         comboText.SetText(String.Format("{0:n0}", currentCombo));
-        float value = (currentCombo / maxCombo) ;
+        float value = Mathf.Min(currentCombo / maxCombo, 1) ;
         comboText.fontSize = Mathf.Max(minTextSize, value * maxTextSize);
         comboText.color = gradient.Evaluate(value);
         gameObject.SetActive(true);

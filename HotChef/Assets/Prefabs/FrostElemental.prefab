@@ -4777,7 +4777,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811542397
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4819,7 +4819,7 @@ GameObject:
   - component: {fileID: 2783316382198519175}
   m_Layer: 9
   m_Name: FrostElemental
-  m_TagString: Untagged
+  m_TagString: FrostEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4859,7 +4859,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c009d194e98997a488876bea1cd2b9c8, type: 3}
   changeRate: 0.3
   hitFace: {fileID: 21300000, guid: 6a7bae8a35cdda24a8135f2e1861d3ee, type: 3}
-  slowRate: 0.25
+  slowRate: 0.2
 --- !u!114 &2783316382198519168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4894,7 +4894,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.9
 --- !u!50 &2783316382198519175
 Rigidbody2D:
   serializedVersion: 4
@@ -4985,7 +4985,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811542397
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: b072ff993bfa3364abecd833b3ed97e2, type: 3}
   m_Color: {r: 0.04768598, g: 0.13319676, b: 0.5377358, a: 1}
@@ -9775,7 +9775,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 811542397
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 3

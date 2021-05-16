@@ -13,6 +13,26 @@ public class GameController : Singleton<GameController>
         base.Awake();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameOver = false;
+    }
+
+    public void LoadScene(string nextScene)
+    {
+        SceneManager.LoadScene(nextScene);
+    }
+
     public void Exit()
     {
         Application.Quit();

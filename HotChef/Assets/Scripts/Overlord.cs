@@ -10,6 +10,7 @@ public class Overlord : MonoBehaviour
     public ComboScore comboScore;
     public ScreenBorder border;
     public LightController lightController;
+    public GameOverPanel gameOverPanel;
 
     public float highSpeed, lowSpeed;
     public float max, min;
@@ -27,7 +28,8 @@ public class Overlord : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-
+        nextScoreUpdate = Time.deltaTime;
+        nextComboUpdate = Time.deltaTime;
     }
 
     private void Update()
@@ -70,8 +72,21 @@ public class Overlord : MonoBehaviour
         if(normalizedVelocity <= 0)
         {
             GameController.Instance.gameOver = true;
-            print("Game Over");
+            float combo = comboScore.CheckHighSpeed(isHighSpeed);
+            totalScore.UpdateScore(normalizedVelocity, combo);
+
+            gameOverPanel.StartGameOver(totalScore.GetScore());
             return;
         }
+    }
+
+    public void Exit()
+    {
+        GameController.Instance.Exit();
+    }
+
+    public void LoadScene()
+    {
+        GameController.Instance.LoadScene("SampleScene");
     }
 }

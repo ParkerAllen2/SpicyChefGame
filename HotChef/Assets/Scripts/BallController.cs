@@ -65,4 +65,10 @@ public class BallController : MonoBehaviour
     {
         return rb.velocity.magnitude + extraSpeed;
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("FrostEnemy")) return;
+        SoundManager.Instance.Play("BallHit");
+    }
 }

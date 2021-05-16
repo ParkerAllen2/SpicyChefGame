@@ -9,6 +9,11 @@ public class Spawner : MonoBehaviour
     public float nextSpawn = 0;
     public Vector2 topright;
 
+    private void Start()
+    {
+        nextSpawn += Time.time;
+    }
+
     private void Update()
     {
         if (GameController.Instance.gameOver)

@@ -30,25 +30,25 @@ public class PanelSizer : MonoBehaviour
 
     public void PanelShow()
     {
+        gameObject.SetActive(true);
         to = defaultSize;
         StopAllCoroutines();
-        gameObject.SetActive(true);
         StartCoroutine(ChangeSize(true));
     }
 
     public void PanelWidth(float width)
     {
+        panel.gameObject.SetActive(true);
         to.x = width;
         StopAllCoroutines();
-        panel.gameObject.SetActive(true);
         StartCoroutine(ChangeSize(true));
     }
 
     public void PanelHeight(float height)
     {
+        panel.gameObject.SetActive(true);
         to.y = height;
         StopAllCoroutines();
-        panel.gameObject.SetActive(true);
         StartCoroutine(ChangeSize(true));
     }
 

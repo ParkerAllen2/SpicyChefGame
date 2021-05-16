@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Ball
+  - FrostEnemy
   layers:
   - Default
   - TransparentFX

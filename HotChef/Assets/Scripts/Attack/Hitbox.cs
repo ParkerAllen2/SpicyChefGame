@@ -25,6 +25,7 @@ public class Hitbox : MonoBehaviour
         attack = att;
         hitbox.enabled = true;
         attack.SetCooldown();
+        SoundManager.Instance.Play(att.sound);
         StartCoroutine(Swing());
     }
 

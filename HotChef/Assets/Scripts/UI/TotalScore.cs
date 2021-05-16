@@ -22,4 +22,9 @@ public class TotalScore : MonoBehaviour
         score += (int)(velocity * (baseMultiplier + combo));
         scoreText.SetText(String.Format("{0:n0}", score));
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
 }

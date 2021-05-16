@@ -10,6 +10,7 @@ public class Attack
     public float offsetAngle;
     public float attackRate;
     float nextUseTime;
+    public string sound;
 
     public void SetCooldown()
     {
